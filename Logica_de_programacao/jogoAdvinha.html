@@ -1,0 +1,65 @@
+<meta charset="UTF-8">
+
+<input/>
+<button>Enter</button>
+
+<script>
+
+	function sorteia() {
+		return Math.round(Math.random() * 10);
+	}
+
+	function sorteiaNumeros(quantidade) {
+		var segredos = [];
+		var numero = 1;
+		
+		while (numero <= quantidade) {
+			var numeroAleatorio = sorteia();
+			var achou = false;
+			
+			if (numeroAleatorio != 0) {
+				for (var i = 0; i < segredos.length; i++) {
+					if (segredos[i] == numeroAleatorio) {
+						achou = true;
+						break;
+					}
+				}
+				
+				if (achou == false) {
+					segredos.push(numeroAleatorio); //---------- adiciona elemento ao Array
+					numero++;
+				}
+			}
+		}
+		
+		return segredos;
+	}
+
+	var segredos = sorteiaNumeros(5);
+	console.log(segredos);
+
+	var input = document.querySelector("input"); //--------- associa o conteúdo da tag 'input' à varivável 'input'
+	input.focus(); //----------- da focu na caixa de input
+
+	var achou = false;
+	function verificar() {
+		for (var i = 0; i < segredos.length; i++) {
+			if (input.value == segredos[i]) {
+				alert("Voce acertou!");
+				achou = true;
+				break;
+			}
+		}
+		
+		if (achou == false) {
+			alert("Voce errou!");
+		}
+		
+		input.value = "";
+		input.focus();
+	}
+
+	var button = document.querySelector("button"); //----------- associa o conteúdo da tag 'button' à variável 'button'
+	button.onclick = verificar; //-------- associa o conteúdo da função ao botão
+
+</script>
