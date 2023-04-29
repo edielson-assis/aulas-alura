@@ -8,27 +8,12 @@ const horario = document.querySelector(".horario");
 
 function verificar() {
 	var receberNovidade = document.querySelector(".check");
-	
-	if (receberNovidade.checked) {
-		return "Sim";
-	}
-	else {
-		return "Não";
-	}
+	return receberNovidade.checked ? "Sim" : "Não";
 }
 
 function preferenciaContato() {
 	var contato = document.querySelector('input[name="contato"]:checked').value;
-	
-	if (contato == "email") {
-		return "Email";
-	}
-	else if (contato == "telefone") {
-		return "Ligação";
-	}
-	else {
-		return "WhatsApp";
-	}
+	return contato == "email" ? "Email" : contato == "telefone" ? "Ligação" : "WhatsApp";
 }
 
 function cadastrar() {
@@ -59,8 +44,7 @@ function validaForm() {
     var valores = [];
 
     for (var i = 0; i < campos.length; i++) valores.push(document.forms[0][campos[i]].value);
-    if (valores.indexOf("") !== -1) alert("Por favor, preencha todos os campos"); 
-    else alert("Dados enviados com sucesso!"); 
+    valores.indexOf("") !== -1 ? alert("Por favor, preencha todos os campos") : alert("Dados enviados com sucesso!"); 
 } 
 
 function limpar() {
