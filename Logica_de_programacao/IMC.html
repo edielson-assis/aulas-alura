@@ -1,0 +1,25 @@
+<meta charset="UTF-8">
+
+<script>
+
+function pularLinha() {
+    document.write("<br><br>");
+}
+
+function mostrar(frase) {
+    document.write(frase);
+    pularLinha();
+}
+
+function calcularIMC(peso, altura) {
+	return peso / (altura * altura);
+}
+
+var nome = prompt("Informe o seu nome");
+var peso = prompt(nome + ", informe o seu peso");
+var altura = prompt(nome + ", informe a sua altura");
+
+var imcEdielson = calcularIMC(peso, altura);
+mostrar(nome + ", o seu IMC é " + Math.round(imcEdielson));
+
+</script>
